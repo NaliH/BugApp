@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bug Home Page</title>
+</head>
+<body>
+    <h1>Home Page</h1>
+
+    <h3>Latest Bugs List</h3>
+    {% if latest_bug_list %}
+        <ul>
+        {% for bug in latest_bug_list %}
+            <li><a href="{% url 'bug:detail' bug.id %}">{{ bug.bug_type_text }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No bugs are available.</p>
+    {% endif %}
+    <h4><a href="{% url 'bug:report'  %}">Report a New Bug</a> | <a href="{% url 'bug:list' %}">View All Bugs</a></h4>
+</body>
+</html>

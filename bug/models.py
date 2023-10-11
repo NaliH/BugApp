@@ -7,7 +7,7 @@ from django.utils import timezone
 class Bug(models.Model):
     description_text = models.CharField(max_length=200)
     bug_type_text = models.CharField(max_length=200)
-    report_date = models.DateTimeField()
+    report_date = models.DateTimeField(auto_now_add=True)
     status_text = models.CharField(max_length=50)
 
     def was_reported_recently(self):
