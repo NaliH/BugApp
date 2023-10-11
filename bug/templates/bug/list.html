@@ -10,7 +10,7 @@
     {% if bug_list %}
         <ul>
         {% for bug in bug_list %}
-            <li><a href="{% url 'bug:detail' bug.id %}/">{{ bug.bug_type_text }} (ID: {{ bug.id }})</a></li>
+            <li><a href="{% url 'bug:detail' bug.id %}">{{ bug.bug_type_text }} (ID: {{ bug.id }})</a></li>
         {% endfor %}
         </ul>
     {% else %}
