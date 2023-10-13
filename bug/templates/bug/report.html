@@ -9,37 +9,38 @@
         {% csrf_token %}
         <fieldset>
             <legend><h2>Fill in details for bug report:</h2></legend>
-            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+            {% if error_message %}
+                <p><strong>{{ error_message }}</strong></p>
+            {% endif %}
             <div>
                 <label for="bug-desc">Description: </label>
-                <input type="text" id="bug-desc" name="desc" placeholder="Enter description of the bug (200 char limit)">
+                <input type="text" id="bug-desc" name="desc" placeholder="Enter description of the bug (200 char limit)" value="{{ fill_desc }}">
             </div>
             <div>
                 <label for="bug-type">Bug Type: </label>
-                <input type="text" id="bug-type" name="type" placeholder="Enter bug type">
+                <input type="text" id="bug-type" name="type" placeholder="Enter bug type" value="{{ fill_type }}">
             </div>
             <div>
                 <label for="bug-status">Bug Status:</label>
             </div>
             <div>
                 <div>
-                    <input type="radio" id="bug-new" name="status" value="New">
+                    <input type="radio" id="bug-new" name="status" value="New" checked="checked">
                     <label for="bug-new">New</label>
                 </div>
                 <div>
 
-                    <input type="radio" id="bug-in-progress" name="status" value="In Progress">
+                    <input type="radio" id="bug-in-progress" name="status" value="In Progress" {% if error_message and check_status == "In Progress" %}checked="checked"{% endif %}>
                     <label for="bug-in-progress">In Progress</label>
                 </div>
                 <div>
-                    <input type="radio" id="bug-completed" name="status" value="Completed">
+                    <input type="radio" id="bug-completed" name="status" value="Completed" {% if error_message and check_status == "Completed" %}checked="checked"{% endif %}>
                     <label for="bug-completed">Completed</label>
                 </div>
             </div>
-
         </fieldset>
-    <input type="submit" value="Report Bug">
-    <a href="{% url 'bug:index' %}">Cancel</a>
+        <input type="submit" value="Report Bug">
+        <a href="{% url 'bug:index' %}">Cancel</a>
     </form>
 </body>
 </html>

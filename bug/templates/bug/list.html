@@ -6,7 +6,7 @@
 </head>
 <body>
     <h2>List of Bugs</h2>
-    <p>List of all reported</p>
+    <p>List of all reported bugs</p>
     {% if bug_list %}
         <ul>
         {% for bug in bug_list %}
@@ -16,6 +16,6 @@
     {% else %}
         <p>No bugs are available.</p>
     {% endif %}
-    <h5><a href="{% url 'bug:index' %}">Home</a> | <a href="{% url 'bug:report'  %}">Report New Bug</a> </h5>
+    <h5><a href="{% url 'bug:index' %}">Home</a> | <a href="{% url 'bug:report'  %}">Report a New Bug</a> </h5>
 </body>
 </html>

@@ -11,7 +11,8 @@ class Bug(models.Model):
     status_text = models.CharField(max_length=50)
 
     def was_reported_recently(self):
-        return self.report_date >= timezone.now() - datetime.timedelta(days=1)
+        now = timezone.now()
+        return now - datetime.timedelta(days=1) <= self.report_date <= now
 
     def __str__(self):
         return self.bug_type_text
